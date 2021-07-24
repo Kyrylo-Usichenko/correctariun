@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import Correctarium from "./components/Correctarium/Correctarium";
+import {useSelector} from "react-redux";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const textValue = useSelector(({reducer}) => reducer.processedText)
+    const totalAmount = useSelector(({reducer}) => reducer.totalAmount)
+    const date = useSelector(({reducer}) => reducer.deadLine)
+
+    return (
+        <div className="App">
+            <Correctarium textValue={textValue} totalAmount={totalAmount} date={date} />
+        </div>
+    );
 }
 
 export default App;
