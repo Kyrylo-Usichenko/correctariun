@@ -3,7 +3,9 @@ import {dateCalculation} from './dateCalculation'
 import {priceCalculation} from "./priceCalculation";
 import {workDurationCalculation} from "./workDurationCalculation";
 
-
+console.log(moment().local("uk").valueOf())
+console.log(moment().local("uk").hour(18))
+console.log(dateCalculation(moment().local("uk").hour(18).valueOf(), 3600001))
 
 const UPDATE_NEW_TEXT = 'UPDATE-NEW-POST-TEXT'
 const SELECT_USER_LANGUAGE = 'CHOOSE-USER-LANGUAGE'
@@ -38,7 +40,7 @@ function reducer(state = initialState, action) {
             state.totalAmount = priceCalculation(action.newText.length, state.selectedLanguage, '.doc').toFixed(2)
             let workDuration = workDurationCalculation(action.newText.length, state.selectedLanguage,'.doc')
             let deadLine = dateCalculation(state.currentTime, workDuration)
-            console.log(workDuration)
+
             return ({
                 ...state,
                 processedText: action.newText,
