@@ -1,7 +1,7 @@
 import moment from "moment";
 
-export const dateCalculation = (startTime, duration) => {
-    let resultDate = moment(startTime)
+export const dateCalculation = (startTime : number, duration: number) => {
+    let resultDate: any = moment(startTime)
 
     do {
         if (resultDate.day() === 0 || resultDate.day() === 6) {

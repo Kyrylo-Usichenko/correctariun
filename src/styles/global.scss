@@ -7,3 +7,130 @@
   margin: 0 auto;
   padding: 0 16px;
 }
+
+
+.mediumTitle {
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.47;
+  letter-spacing: normal;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 0 70px;
+}
+
+.makeOrder {
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: -.05px;
+  width: 345px;
+  height: 70px;
+  display: flex;
+  padding: 19px 20px;
+  position: relative;
+
+  top: -8px;
+  cursor: pointer;
+  user-select: none;
+  overflow: visible;
+  border-radius: 8px;
+
+  &:focus {
+    border-color: #0068e4;
+    outline: none;
+  }
+}
+
+.selector {
+  user-select: none;
+  width: 345px;
+  height: 68px;
+  overflow: visible;
+  padding: 0;
+  border-radius: 8px;
+  border: 0 solid #eee;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: -.05px;
+}
+
+.area {
+  width: 100%;
+  max-width: 660px;
+  position: relative;
+
+  &__download {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: -.05px;
+  }
+}
+
+.textArea {
+  resize: none;
+  width: 100%;
+  max-width: 660px;
+  min-height: 200px;
+  min-width: 100%;
+  border-radius: 16px;
+  border: 1px solid #eee;
+  outline: none;
+  padding: 20px 30px;
+  margin-bottom: 25px;
+}
+
+.placeholder {
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: -.05px;
+  color: white;
+}
+
+.form {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 80px;
+  margin-bottom: 120px;
+}
+
+.number {
+  margin-left: auto;
+  font-size: 60px;
+  font-weight: 100;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.37;
+  letter-spacing: -.19px;
+  text-align: right;
+  color: #0068e4;
+}
+
+.currency {
+  color: #0068e4;
+  margin-bottom: 13px;
+}
+
+.submit {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+}

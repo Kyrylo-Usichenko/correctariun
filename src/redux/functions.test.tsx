@@ -99,21 +99,21 @@ describe("testing functions", () => {
         expect(functionDateCalculation).toBe('27.07.2021 o 18:03')
     })
     test('date calculated from 18 oclock to next day', () => {
-
+        // @ts-ignore
         let testedTime = moment().local("uk").hour(18).valueOf()
         let testedDuration = 3600001
         let functionDateCalculation = dateCalculation(testedTime, testedDuration)
-        expect(functionDateCalculation).toBe('28.07.2021 o 11:00')
+        expect(functionDateCalculation).toBe('29.07.2021 o 11:00')
     })
     test('date calculated from 20 oclock to next day', () => {
-
+// @ts-ignore
         let testedTime = moment().local("uk").hour(20).valueOf()
         let testedDuration = 3600001
         let functionDateCalculation = dateCalculation(testedTime, testedDuration)
-        expect(functionDateCalculation).toBe('28.07.2021 o 11:00')
+        expect(functionDateCalculation).toBe('29.07.2021 o 11:00')
     })
     test('date calculated from friday to next work day', () => {
-
+// @ts-ignore
         let testedTime = moment().local("uk").day(5).hour(20).valueOf()
         let testedDuration = 3600001
         let functionDateCalculation = dateCalculation(testedTime, testedDuration)
@@ -121,6 +121,7 @@ describe("testing functions", () => {
     })
     test('date calculated from morning 5 am to next work day', () => {
 
+        // @ts-ignore
         let testedTime = moment().local("uk").day(3).hour(5).valueOf()
         let testedDuration = 3600001
         let functionDateCalculation = dateCalculation(testedTime, testedDuration)

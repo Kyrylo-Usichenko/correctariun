@@ -3,15 +3,17 @@ import {dateCalculation} from './dateCalculation'
 import {priceCalculation} from "./priceCalculation";
 import {workDurationCalculation} from "./workDurationCalculation";
 
-console.log(moment().local("uk").valueOf())
-console.log(moment().local("uk").hour(18))
-console.log(dateCalculation(moment().local("uk").hour(18).valueOf(), 3600001))
-
 const UPDATE_NEW_TEXT = 'UPDATE-NEW-POST-TEXT'
 const SELECT_USER_LANGUAGE = 'CHOOSE-USER-LANGUAGE'
 
-
-const initialState = {
+export type InitialStateType = {
+    processedText: string,
+    selectedLanguage: string,
+    totalAmount: null | string,
+    currentTime: any,
+    deadLine: null | string,
+}
+const initialState: InitialStateType = {
     processedText: '',
     selectedLanguage: "Українська",
     totalAmount: null,
@@ -19,9 +21,7 @@ const initialState = {
     deadLine: null,
 }
 
-function reducer(state = initialState, action) {
-
-
+function reducer(state = initialState, action: ActionsType) {
     switch (action.type) {
         case SELECT_USER_LANGUAGE:
 
@@ -33,17 +33,16 @@ function reducer(state = initialState, action) {
             }
 
 
-
-
         case UPDATE_NEW_TEXT:
+            // @ts-ignore
             state.currentTime = moment().local("uk").valueOf();
-            state.totalAmount = priceCalculation(action.newText.length, state.selectedLanguage, '.doc').toFixed(2)
-            let workDuration = workDurationCalculation(action.newText.length, state.selectedLanguage,'.doc')
+            state.totalAmount = priceCalculation(action.text.length, state.selectedLanguage, '.doc').toFixed(2)
+            let workDuration = workDurationCalculation(action.text.length, state.selectedLanguage, '.doc')
             let deadLine = dateCalculation(state.currentTime, workDuration)
 
             return ({
                 ...state,
-                processedText: action.newText,
+                processedText: action.text,
                 totalAmount: state.totalAmount,
                 deadLine: deadLine
             })
@@ -52,9 +51,16 @@ function reducer(state = initialState, action) {
     }
 }
 
-
-export const updateProcessedText = (text) => ({type: UPDATE_NEW_TEXT, newText: text})
-export const selectUserLanguage = value => ({type: SELECT_USER_LANGUAGE, value})
-
+type ActionsType = updateProcessedTextType | selectUserLanguageType
+type updateProcessedTextType = {
+    type: typeof UPDATE_NEW_TEXT
+    text: string
+}
+export const updateProcessedText = (text:string): updateProcessedTextType => ({type: UPDATE_NEW_TEXT, text})
+type selectUserLanguageType = {
+    type: typeof SELECT_USER_LANGUAGE
+    value: string
+}
+export const selectUserLanguage = (value: string): selectUserLanguageType => ({type: SELECT_USER_LANGUAGE, value})
 
 export default reducer

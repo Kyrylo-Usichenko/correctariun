@@ -1,10 +1,9 @@
-export const workDurationCalculation = (length, language, format) => {
+export const workDurationCalculation = (length: any, language: string, format: string) => {
     let translationSpeed
 
     if (language === "Українська" || language === "Російська") {
         translationSpeed = 1333
-    }
-    if (language === "Англійська" || language === "Англійська(носій)") {
+    } else {
         translationSpeed = 333
     }
     let time = 0.5

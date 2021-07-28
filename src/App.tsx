@@ -4,9 +4,9 @@ import {useSelector} from "react-redux";
 
 function App() {
 
-    const textValue = useSelector(({reducer}) => reducer.processedText)
-    const totalAmount = useSelector(({reducer}) => reducer.totalAmount)
-    const date = useSelector(({reducer}) => reducer.deadLine)
+    const textValue = useSelector(({reducer}: any) => reducer.processedText)
+    const totalAmount = useSelector(({reducer}: any) => reducer.totalAmount)
+    const date = useSelector(({reducer}: any) => reducer.deadLine)
 
     return (
         <div className="App">

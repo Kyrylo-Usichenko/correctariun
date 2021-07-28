@@ -1,11 +1,10 @@
-export const priceCalculation = (length, language, format) => {
-    let factor
-    let minPrice
+export const priceCalculation = (length: number, language: string, format: string) => {
+    let factor: number
+    let minPrice: number
     if (language === "Українська" || language === "Російська") {
         factor = 0.05
         minPrice = 50
-    }
-    if (language === "Англійська" || language === "Англійська(носій)") {
+    } else  {
         factor = 0.12
         minPrice = 120
     }
